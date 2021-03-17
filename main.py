@@ -135,7 +135,12 @@ sorted_word_features = utils.most_explanatory_word(best_theta, wordlist)
 print("Most Explanatory Word Features")
 print(sorted_word_features[:10])
 
-# Remove stop words:
+#-------------------------------------------------------------------------------
+# Implement stop words removal in your feature engineering code. Specifically, 
+# load the file stopwords.txt, remove the words in the file from your dictionary, 
+# and use features constructed from the new dictionary to train your model and make predictions.
+# Hint: Instead of replacing the feature matrix with zero columns on stop words, 
+# you can modify the bag_of_words function to prevent adding stopwords to the dictionary
 #-------------------------------------------------------------------------------
 
 print('len(dictionary) before:', len(dictionary))
@@ -152,6 +157,11 @@ print('[normal feataures]: making prediction using PEGASOS, T =', T)
 print("{:43} {:.4f}".format("Training accuracy for PEGASOS:", peg_train_accuracy))
 print("{:43} {:.4f}".format("Testing accuracy for PEGASOS:", peg_test_accuracy))
 
+#-------------------------------------------------------------------------------
+# Use the same learning algorithm and the same feature as the last problem. However, 
+# when you compute the feature vector of a word, use its count in each document 
+# rather than a binary indicator.
+#-------------------------------------------------------------------------------
 
 dictionary = p1.bag_of_words(train_texts, remove_stopword=True)
 print('len(dictionary) after:', len(dictionary))
